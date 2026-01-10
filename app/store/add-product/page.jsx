@@ -8,15 +8,15 @@ import { toast } from "react-hot-toast";
 
 export default function StoreAddProduct() {
   const categories = [
-    "Electronics",
-    "Clothing",
-    "Home & Kitchen",
-    "Beauty & Health",
-    "Toys & Games",
-    "Sports & Outdoors",
-    "Books & Media",
-    "Food & Drink",
-    "Hobbies & Crafts",
+    "Atta, Rice & Dal",
+    "Cooking Oil & Ghee",
+    "Spices & Masala",
+    "Biscuits & Snacks",
+    "Tea, Coffee & Beverages",
+    "Dry Fruits & Nuts",
+    "Instant Food & Noodles",
+    "Personal Care",
+    "Household Essentials",
     "Others",
   ];
 

@@ -61,7 +61,7 @@ export default function CreateStore() {
                 
                 let statusMessage = ""
                 if (response.data.status === "approved") {
-                    statusMessage = "Your store has been approved! Redirecting to dashboard..."
+                    statusMessage = "Welcome to your Store🎉! Redirecting to dashboard..."
                 } else if (response.data.status === "pending") {
                     statusMessage = "Your store application is pending approval."
                 } else if (response.data.status === "rejected") {
