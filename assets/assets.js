@@ -2,6 +2,7 @@ import gs_logo from "./gs_logo.jpg"
 import happy_store from "./happy_store.webp"
 import upload_area from "./upload_area.svg"
 import hero_model_img from "./hero_model_img.png"
+import heromodelimg from "./heromodelimg.png"
 import hero_product_img1 from "./hero_product_img1.png"
 import hero_product_img2 from "./hero_product_img2.png"
 import product_img1 from "./product_img1.png"
@@ -25,7 +26,7 @@ import unauth from "./unauth.gif"
 import admin1 from "./admin1.gif"
 
 export const assets = {
-    upload_area, hero_model_img,
+    upload_area, hero_model_img,heromodelimg,
     hero_product_img1, hero_product_img2, gs_logo,
     product_img1, product_img2, product_img3, product_img4, product_img5, product_img6,
     product_img7, product_img8, product_img9, product_img10, product_img11, product_img12, orderdelivery, unauth ,admin1
