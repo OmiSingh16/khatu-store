@@ -122,7 +122,7 @@ export default function Orders() {
             <table className="w-full max-w-5xl text-slate-600 table-auto border-separate border-spacing-y-6">
               <thead>
                 <tr className="text-slate-700 bg-slate-50 rounded-lg">
-                  <th className="text-left p-4 font-semibold">Product</th>
+                  <th className="text-left p-4 font-semibold">Products</th>
                   <th className="text-center p-4 font-semibold">Total Price</th>
                   <th className="text-left p-4 font-semibold">Address</th>
                   <th className="text-left p-4 font-semibold">Status</th>

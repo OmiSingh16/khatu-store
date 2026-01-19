@@ -15,6 +15,7 @@ const OrderSummary = ({ totalPrice, items }) => {
     const dispatch = useDispatch()
     const currency = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '₹';
     const router = useRouter();
+    const SHIPPING_PRICE = 20;
 
     const addressList = useSelector(state => state.address.list);
 
@@ -63,7 +64,7 @@ const OrderSummary = ({ totalPrice, items }) => {
                 key: data.order.key,
                 amount: data.order.amount,
                 currency: data.order.currency,
-                name: "Nexus Store",
+                name: "Shree Khatu Shayam Store",
                 description: "Order Payment",
                 order_id: data.order.id,
                 handler: async function (response) {
@@ -138,12 +139,13 @@ const OrderSummary = ({ totalPrice, items }) => {
             } 
 
             const token = await getToken();
-            const finalAmount = coupon ? (totalPrice - (coupon.discount / 100 * totalPrice)) : totalPrice;
-
+           
             const orderData = {
                 addressId: selectedAddress.id,
                 items,
-                paymentMethod
+                paymentMethod,
+                shippingPrice: SHIPPING_PRICE,
+                finalAmount
             }
 
             if (coupon) {
@@ -178,8 +180,18 @@ const OrderSummary = ({ totalPrice, items }) => {
         }
     }
 
+
+    
+  /* ---------------- Price Calculation ---------------- */
+  const discountAmount = coupon
+    ? (coupon.discount / 100) * totalPrice
+    : 0;
+
+  const finalAmount =
+    totalPrice + SHIPPING_PRICE - discountAmount;
+
     // Calculate final amount for display
-    const finalAmount = coupon ? (totalPrice - (coupon.discount / 100 * totalPrice)) : totalPrice;
+    // const finalAmount = coupon ? (totalPrice - (coupon.discount / 100 * totalPrice)) : totalPrice;
 
     return (
         <div className='w-full max-w-lg lg:max-w-[340px] bg-slate-50/30 border border-slate-200 text-slate-500 text-sm rounded-xl p-7'>
@@ -255,7 +267,7 @@ const OrderSummary = ({ totalPrice, items }) => {
                     </div>
                     <div className='flex flex-col gap-1 font-medium text-right'>
                         <p>{currency}{totalPrice.toLocaleString()}</p>
-                        <p>Free</p>
+                        <p>{currency}{SHIPPING_PRICE}</p>
                         {coupon && <p>{`-${currency}${(coupon.discount / 100 * totalPrice).toFixed(2)}`}</p>}
                     </div>
                 </div>
@@ -311,3 +323,4 @@ const OrderSummary = ({ totalPrice, items }) => {
 }
 
 export default OrderSummary;
+
